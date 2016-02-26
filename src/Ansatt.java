@@ -4,14 +4,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Ansatt extends Card {
-//	protected String firstName;
-//	protected String lastName;
-//	protected String pinCode;
-//	private String cardNumber;
-//	private Boolean cardDisabled;
-//	protected String creationDate;
-//	protected Boolean doExpire;
-//	protected Boolean expireDate;
 
 	public Ansatt(String firstName, String lastName) {
 		super(firstName, lastName);

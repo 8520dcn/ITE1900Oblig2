@@ -1,6 +1,5 @@
 import java.util.Calendar;
 import java.util.Date;
-
 abstract public class Card
 {
 	protected String firstName;

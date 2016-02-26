@@ -3,8 +3,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Ansatt extends Card {
+public class Ansatt extends Card implements Konstanter {
 
+	private Double timelonn = 255.55;
+	private Double kredittFaktor = 25.00;
+	private Integer Ansinitet = 0;
+	private Double bonusFaktor = 800.00;
+	
 	public Ansatt(String firstName, String lastName) {
 		super(firstName, lastName);
 		doExpire = false;
@@ -49,6 +54,55 @@ public class Ansatt extends Card {
 	    }
 	    
 	    else return false;
+	}
+	
+	public void settFornavn(String firstName)
+	{
+		this.firstName = firstName;
+	}
+	
+	public String hentFornavn()
+	{
+		return firstName;
+	}
+	public void settEtternavn(String lastName)
+	{
+		this.lastName = lastName;
+	}
+	public String hentEtternavn()
+	{
+		return lastName;
+	}
+	
+	public void setFulltNavn(String fullName)
+	{
+		String names = fullName.trim();
+		int endIndex = names.lastIndexOf(" ");
+		if(endIndex > 1)
+		{
+		System.out.println("Too many names, max 2");
+		}
+		else
+		{
+			firstName = names.substring(0, 0);
+			lastName = names.substring(1, 1);
+		}
+	}
+	
+	public String hentFulltNavn()
+	{
+		String fullName = firstName + " " + lastName;
+		return fullName; 
+	}
+	
+	public double beregnKreditt()
+	{
+		return timelonn * kredittFaktor;
+	}
+	
+	public double beregnBonus()
+	{
+		return bonusFaktor * Ansinitet;	
 	}
 
 }

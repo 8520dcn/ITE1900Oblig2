@@ -1,6 +1,7 @@
 import java.util.Calendar;
 import java.util.Date;
-abstract public class Card
+abstract public class Card implements Comparable<Card>, Cloneable
+
 {
 	protected String firstName;
 	protected String lastName;
@@ -57,13 +58,7 @@ abstract public class Card
 		String cardInfoName = "Name: " + lastName + ", " + firstName + "\n";
 		String cardInfoNumber = "CardNumber: " + cardNumber + "\n";
 		String cardInfoCode = "Pin: " + pinCode + "\n";
-		String cardInfoCardDisabled = "Card Disabled: " + Boolean.toString(cardDisabled) + "\n";
-		
-//		SimpleDateFormat dateFormat = new SimpleDateFormat ("E dd.MM.yyyy hh:mm");
-//		Calendar calendar = Calendar.getInstance();
-//		calendar.setTime(new Date());
-//		calendar.add(Calendar.DATE, 7);
-		
+		String cardInfoCardDisabled = "Card Disabled: " + Boolean.toString(cardDisabled) + "\n";		
 		System.out.print(cardInfoName + cardInfoNumber + cardInfoCode + cardInfoCardDisabled);
 	}
 	
@@ -85,6 +80,19 @@ abstract public class Card
 		{
 			return false;
 		}
+	}
+	
+	@Override public int compareTo(Card k)
+	{
+		int compare;
+		compare = this.lastName.compareTo(k.lastName);
+		
+		if(compare == 0)
+		{
+			compare = this.firstName.compareTo(k.firstName);
+			return compare;
+		}
+		else return compare;
 	}
 }
 
